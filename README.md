@@ -2,69 +2,59 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+✱ Curso de React Router Navegación en una SPA
+▶ 01 Router.
+■ 03 Inicio del problema.
+◉ Descarga de react-router.
+◉ Se explica la idea de tener diferentes componentes para diferentes rutas y se muestra cómo se puede acceder a la ruta actual utilizando el objeto Window.location.
 
-In the project directory, you can run:
+■ 04 React Router Dom.
+◉ Se introduce la librería React Router Dom.
+◉ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+◉BrowserRouter as Router: Este es el componente principal que envuelve todo el sistema de rutas de la aplicación. Normalmente se le asigna el alias "Router" para facilitar su uso.
+◉Routes: Este componente se utiliza para definir y agrupar las diferentes rutas de la aplicación.
+◉Route: Este componente se utiliza para definir una ruta específica, indicando el path (ruta) y el elemento que se debe mostrar cuando se accede a esa ruta.
 
-### `npm start`
+▶ 02 Creando componentes.
+■ 02 Error 404.
+◉ Creación de un elemento 404.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+■ 03 SPA vs aplicación tradicional
+◉ Ventajas de las "SPAs" son especialmente útiles en aplicaciones con dashboards.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+■ 05 Creando Navbar
+◉ Se explica cómo importar y utilizar este componente "Header" en el archivo "app.js" para que la barra de navegación se muestre en todas las páginas de la aplicación.
 
-### `npm test`
+▶ 03 Conectando con API.
+■ 02 Componente Link.
+◉ Navegación en una Single Page Application (SPA) utilizando React Router DOM.
+◉ a => Link href => to
+◉ import { Link } from "react-router-dom"
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+■ 03 Conexión con API
+◉ npm i -g json-server
+◉ json-server --watch .\db.json --port 5000
+◉ Se usa el paquete json-server para simular una REST API y obtener los datos del servidor.
+◉ Se crea un archivo api.js en la carpeta API para realizar las peticiones HTTP utilizando la librería Axios.
+◉ Se crea una instancia de Axios con la URL base del servidor y se exporta una función de búsqueda.
+◉ Se crea un componente ListPosts que utilizará la función de búsqueda para mostrar los posts en la página.
 
-### `npm run build`
+■ 04 Mostrar los posts.
+◉ El código del componente "Home" importa el componente "ListPosts" y lo utiliza dentro del componente, pasándole la URL "/posts" como prop.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+▶ 02 Mostrando un post
+■ 04 Mostrar los posts.
+◉ Implementación de la funcionalidad para mostrar el detalle de un post individual en una aplicación React utilizando React Router.
+◉ Creación del componente Post.
+◉ Se obtiene el valor del parámetro "id" de la URL, el instructor utiliza el hook "useParams" de React Router.
+◉ Dentro de "Post", se utiliza el hook "useEffect" para hacer una llamada a la API y obtener la información del post correspondiente al "id" recibido.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+■ 03 Post inexistente.
+◉ Utilizar el catch del método que busca el post para detectar cuando ocurre un error.
+◉ Dentro del catch, usar el hook useNavigate para redirigir al usuario a la ruta /not-found.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+■ 05 Creando categorías.
+◉ Se crea un menú de categorías que permita a los usuarios filtrar los posts por categoría.
+◉ Se utiliza el hook useEffect para hacer una petición a la API y obtener la lista de categorías.
+◉ Se recorre la lista de categorías y se genera un enlace (Link) para cada una, que redirige a la página de la categoría correspondiente.
+◉ El componente ListCategories se agrega al componente Home para que se muestre en la página principal.
